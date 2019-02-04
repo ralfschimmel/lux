@@ -6,7 +6,6 @@
 
 # compiled output
 coverage/
-dist/
 
 # dependencies
 node_modules/
