@@ -74,7 +74,7 @@ class Cluster extends EventEmitter {
         configurable: false
       },
       maxWorkers: {
-        value: options.maxWorkers || process.env.MAX_WORKERS || os.cpus().length,
+        value: options.maxWorkers || os.cpus().length,
         writable: false,
         enumerable: true,
         configurable: false
@@ -94,6 +94,8 @@ class Cluster extends EventEmitter {
     })
 
     this.forkAll().then(() => this.emit('ready'))
+    this.logger.info('maxWorkers ', options.maxWorkers)
+
   }
 
   fork(retry: boolean = true) {

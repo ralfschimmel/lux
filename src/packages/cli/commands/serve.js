@@ -39,7 +39,7 @@ export async function serve({
     logger,
     path: CWD,
     port: PORT,
-    maxWorkers: cluster ? undefined : 1
+    maxWorkers: cluster ? process.env.MAX_WORKERS || 2 : 1
   }).once('ready', () => {
     logger.info(`Lux Server listening on port: ${cyan(`${PORT}`)}`)
   })
