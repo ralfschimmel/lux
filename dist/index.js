@@ -4244,7 +4244,7 @@ class Cluster extends EventEmitter {
         configurable: false
       },
       maxWorkers: {
-        value: options.maxWorkers || os.cpus().length,
+        value: options.maxWorkers || process.env.MAX_WORKERS || os.cpus().length,
         writable: false,
         enumerable: true,
         configurable: false
